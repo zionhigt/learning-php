@@ -1,0 +1,15 @@
+body {
+    min-height: 99vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+body > .container {
+    flex-grow: 1;
+}
+
+body > * {
+    width: 100%;
+}
