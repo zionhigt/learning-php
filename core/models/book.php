@@ -1,7 +1,5 @@
 <?php
 
-use PDO;
-
 require './core/models/index.php';
 
 class BookEntity extends Entity
