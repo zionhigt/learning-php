@@ -2,17 +2,19 @@
 
 require "./core/db/connector.php";
 
+
 class Model
 {
     protected string $name;
     protected mixed $cr;
     protected string $entity_class = "Entity";
     public array $related = [];
-
+    
     function __construct(string $name)
     {
+        include 'config.php';
         $this->name = $name;
-        $this->cr = cursor();
+        $this->cr = cursor($app_config["database"]);
     }
 
     public function fetch_all(): array
