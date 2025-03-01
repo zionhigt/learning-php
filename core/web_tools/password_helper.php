@@ -12,7 +12,8 @@ function pass_hash (string $password): string
     return _pass_hash($password, "Never give up !");
 }
 
-function pass_verify (string $password, string $hash): bool
+function pass_verify (?string $password, ?string $hash): bool
 {
+    if (!$password || !$hash) return false;
     return password_verify($password, $hash);
 }
