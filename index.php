@@ -19,6 +19,7 @@ switch ($uri) {
         require "./pages/add.php";
         break;
     default:
+        $error_404 = new Exception("This pages doesn't exists.");
         require "./404.php";
 }
 

@@ -3,15 +3,16 @@ require_once './logger/index.php';
 require_once './core/web_tools/admin_helper.php';
 require_once './core/web_tools/password_helper.php';
 require_once './core/models/book.php';
-require_once "./core/controller/post.php";
+require_once './core/controller/post.php';
 
 $books = new Books();
 // $h = pass_hash("azerty");
 // dump($h, pass_verify("azerty", $h));
 
 if (!isAdmin()) {
-    http_response_code(403);
-    echo '<div class="container"><h1>403 : Unauth</h1></div>';
+    $error_message = "You're not allowed to get this page !";
+    $error_403 = new Exception($error_message);
+    require "403.php";
     die();
 }
 

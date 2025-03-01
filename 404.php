@@ -1,6 +1,15 @@
-<?php http_response_code(404); ?>
+<?php
+$error_404 = $error_404 ?? "Not found";
+if ($error_404 instanceof Exception) {
+    $error_404 = $error_404->getMessage();
+}
+http_response_code(404);
+?>
 
 <div class="container">
-    <h1>404 : Not found Error</h1>
+    <h2 class="alert alert-warning">
+        <?= $error_404 ?>
+    </h2>
 </div>
+
 <?php die(); ?>
