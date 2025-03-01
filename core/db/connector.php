@@ -15,9 +15,8 @@ class Cursor
     }
 }
 
-function cursor ()
+function cursor (array $config): Cursor
 {
-    require_once 'config.php';
-    $db = new Cursor($app_config["database"]);
+    $db = new Cursor($config);
     return $db; 
 }
